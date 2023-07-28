@@ -1,0 +1,8 @@
+#+title: mlibc-crossers
+This repository is used to generate a collection of
+=bootstrap-system-gcc=-style compilers for mlibc testing.
+
+* Resulting image layout
+=${ARCH}-linux-mlibc= toolchains are built and installed with a prefix of
+=/usr/local= and configured with a sysroot in =/sysroots/${ARCH}-linux-mlibc/=,
+in which mlibc and Linux headers are installed.
