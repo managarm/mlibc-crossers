@@ -82,7 +82,17 @@ for target in "${targets[@]}"; do (
         ${MANYTOOLS_CONF_EXTRA}
     make -O -j"${PARALLELISM}"
     make -O -j"${PARALLELISM}" install
+    rm -rf "${sysroot}"/*
 ); done
+
+# Clean up build dirs
+for target in "${targets[@]}"; do
+    rm -rf "${target}"
+done
+
+# Clean up source dirs
+rm -rf gcc binutils tool-src tool-checksums *.tar* config.{sub,guess} \
+   tool-checksums linux mlibc-src
 
 # Local Variables:
 # indent-tabs-mode: nil
