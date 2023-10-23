@@ -1,5 +1,8 @@
 FROM ubuntu:22.04 AS source-fetched
 
+ENV TZ=Etc/UTC \
+    DEBIAN_FRONTEND=noninteractive
+
 ARG GCCREF=tags/managarm/gcc-13.2.0
 ARG GCCBASE=https://github.com/managarm/gcc/archive/refs
 ARG BINUREF=tags/managarm/binutils-2_40
