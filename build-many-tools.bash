@@ -1,5 +1,6 @@
 #!/bin/bash
 targets=(
+    riscv64-linux-mlibc
     x86_64-linux-mlibc
     aarch64-linux-mlibc
 )
