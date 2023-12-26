@@ -3,6 +3,7 @@ targets=(
     riscv64-linux-mlibc
     x86_64-linux-mlibc
     aarch64-linux-mlibc
+    i686-linux-mlibc
 )
 
 set -xe
@@ -42,6 +43,7 @@ for target in "${targets[@]}"; do (
     case "$arch" in
         aarch64) arch="arm64" ;;
         riscv64) arch="riscv" ;;
+        i686)    arch="i386"  ;;
     esac
     make -C ../linux O="${sysroot}" ARCH="${arch}" headers_install
 
