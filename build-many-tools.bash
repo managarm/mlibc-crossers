@@ -86,12 +86,11 @@ for target in "${targets[@]}"; do (
     make -O -j"${PARALLELISM}"
     make -O -j"${PARALLELISM}" install
     rm -rf "${sysroot}"/*
-); done
 
-# Clean up build dirs
-for target in "${targets[@]}"; do
+    # Clean up
+    cd ..
     rm -rf "${target}"
-done
+); done
 
 # Clean up source dirs
 rm -rf gcc binutils tool-src tool-checksums *.tar* config.{sub,guess} \
