@@ -1,4 +1,4 @@
-FROM ubuntu:22.04 AS source-fetched
+FROM ubuntu:23.04 AS source-fetched
 
 ENV TZ=Etc/UTC \
     DEBIAN_FRONTEND=noninteractive
@@ -14,8 +14,9 @@ ARG LIBABIGAILVER=2.4
 RUN apt-get update && apt-get -y upgrade && apt-get install -y ca-certificates
 RUN apt-get -y install --no-install-recommends \
     build-essential git wget libgmp-dev libmpfr-dev libmpc-dev flex bison \
-    meson rsync pkg-config libdw-dev libelf-dev libdebuginfod-dev libasm-dev \
-    elfutils doxygen python3-sphinx libxml2-dev
+    rsync pkg-config libdw-dev libelf-dev libdebuginfod-dev libasm-dev \
+    elfutils doxygen python3-sphinx libxml2-dev python3-pip ninja-build
+RUN pip3 install --break-system-packages meson
 
 RUN cd / && wget ${GCCBASE}/${GCCREF}.tar.gz
 RUN cd / && wget ${BINUBASE}/${BINUREF}.tar.gz
