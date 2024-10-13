@@ -4,6 +4,7 @@ targets=(
     x86_64-linux-mlibc
     aarch64-linux-mlibc
     i686-linux-mlibc
+    m68k-linux-mlibc
 )
 
 set -xe
